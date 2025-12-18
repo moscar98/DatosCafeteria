@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Datos Bancarios</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Datos para transferir</h2>
+    <p id="datos">
+        Nombre: Del Reino Coffee <br>
+        Banco prepago Tenpo <br>
+        RUT: 19.811.108-2 <br>
+        Tipo de cuenta: Cuenta Vista <br>
+        Numero de cuenta: 111119811108 <br>
+        Correo: random18mil@gmail.com
+    </p>
+    <button onclick="copiar()">Copiar al portapapeles</button>
+
+    <script>
+        function copiar() {
+            const texto = document.getElementById("datos").innerText;
+            navigator.clipboard.writeText(texto);
+            alert("¡Datos copiados! Ahora pégalo en tu app bancaria.");
+        }
+    </script>
+</body>
+
+</html>
