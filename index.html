@@ -100,10 +100,16 @@
     </div>
 
     <script>
+        const textoFormateado = `Nombre: Del Reino Coffee
+            Banco prepago Tenpo
+            RUT: 19.811.108-2
+            Tipo de cuenta: Cuenta Vista
+            Número de cuenta: 111119811108
+            Correo: random18mil@gmail.com`;
+
         function copiar() {
-            const texto = document.getElementById("datos").innerText;
-            navigator.clipboard.writeText(texto).then(() => {
-                alert("¡Datos copiados! Ahora pégalo en tu app bancaria.");
+            navigator.clipboard.writeText(textoFormateado).then(() => {
+                alert("¡Datos copiados con formato! Pégalo en tu app bancaria.");
             });
         }
     </script>
