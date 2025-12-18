@@ -3,39 +3,94 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Datos Bancarios</title>
+    <title>Datos Bancarios – Del Reino Coffee</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+        :root {
+            --bg: #111111;
+            --card: #1e1e1e;
+            --accent: #c8a374;
+            /* dorado café */
+            --text: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body {
-            font-family: Arial;
+            background: var(--bg);
+            color: var(--text);
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
             padding: 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 30px 25px;
+            max-width: 340px;
+            width: 100%;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .5);
             text-align: center;
         }
 
+        h2 {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        #datos {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            white-space: pre-line;
+        }
+
         button {
-            padding: 10px 20px;
-            font-size: 16px;
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .25s;
+        }
+
+        button:hover {
+            background: #e6c18a;
         }
     </style>
 </head>
 
 <body>
-    <h2>Datos para transferir</h2>
-    <p id="datos">
-        Nombre: Del Reino Coffee <br>
-        Banco prepago Tenpo <br>
-        RUT: 19.811.108-2 <br>
-        Tipo de cuenta: Cuenta Vista <br>
-        Numero de cuenta: 111119811108 <br>
-        Correo: random18mil@gmail.com
-    </p>
-    <button onclick="copiar()">Copiar al portapapeles</button>
+    <div class="card">
+        <h2>Datos para transferir</h2>
+        <p id="datos">Nombre: Del Reino Coffee
+            Banco prepago Tenpo
+            RUT: 19.811.108-2
+            Tipo de cuenta: Cuenta Vista
+            Número de cuenta: 111119811108
+            Correo: random18mil@gmail.com</p>
+        <button onclick="copiar()">Copiar al portapapeles</button>
+    </div>
 
     <script>
         function copiar() {
             const texto = document.getElementById("datos").innerText;
-            navigator.clipboard.writeText(texto);
-            alert("¡Datos copiados! Ahora pégalo en tu app bancaria.");
+            navigator.clipboard.writeText(texto).then(() => {
+                alert("¡Datos copiados! Ahora pégalo en tu app bancaria.");
+            });
         }
     </script>
 </body>
